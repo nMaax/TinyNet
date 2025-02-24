@@ -63,12 +63,24 @@ class Value:
 
     @staticmethod
     def backpropagation(y):
+        
+        topo = []
+        visited = set()
+        def topological_sorting(v):
+            if v not in visited:
+                visited.add(v)
+                for child in v._prev:
+                    topological_sorting(child)
+                topo.append(v)
+        topological_sorting(y)
+        
         y.grad = 1
-        Value._propagate(y)
+        for node in topo[::-1]:
+            Value._backward_propagate(node)
 
     @staticmethod
-    def _propagate(y):
-        prev = y._prev
+    def _backward_propagate(y):
+        prev = y._prev # d, f (but we are in b! indeed, y = b !!!!)
 
         if len(prev) == 0:
             return
@@ -78,7 +90,6 @@ class Value:
             if y._op == 'ReLu':
                 dp = 1 if p > 0 else 0
                 p.grad += y.grad * dp
-                Value._propagate(p)
         
         if len(prev) == 2:
             p1, p2 = prev[0], prev[1]
@@ -93,8 +104,6 @@ class Value:
                 dp2 = (p1.data ** p2.data) * math.log(p1.data)
             p1.grad += y.grad * dp1
             p2.grad += y.grad * dp2
-            Value._propagate(p1)
-            Value._propagate(p2)
 
     @staticmethod
     def MSE(y_pred, y_true):
