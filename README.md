@@ -1,12 +1,6 @@
 # TinyNet
 
-TinyNet is a straightforward implementation of a Feedforward Neural Network (FFNN) built from scratch in Python. Inspired by [@karpathy](https://github.com/karpathy)'s [micrograd](https://github.com/karpathy/micrograd), this project aims to provide an educational resource for understanding the foundational components of neural networks without relying on external libraries.
-
-## Features
-
-- **Pure Python Implementation**: Constructed without dependencies to offer clear insights into the mechanics of neural networks.
-- **Educational Focus**: Designed to help students and enthusiasts grasp the inner workings of FFNNs through hands-on experience.
-- **Modular Design**: Organized code structure for ease of understanding and extension.
+TinyNet is a straightforward implementation of a Feedforward Neural Network (FFNN) built from scratch using Python and Numpy only. Inspired by [@karpathy](https://github.com/karpathy)'s [micrograd](https://github.com/karpathy/micrograd), this project aims to provide an educational resource for understanding the foundational components of neural networks without relying on ML-dedicated external libraries.
 
 ## Installation
 
@@ -21,10 +15,11 @@ cd TinyNet
 
 The primary code and examples are contained within the `main.ipynb` Jupyter Notebook. To explore and run the code:
 
-1. **Install Jupyter Notebook**: If you don't have it installed, you can add it using pip:
+1. **Install Numpy and Jupyter Notebook**: If you don't have them installed, you can add them using pip:
 
    ```bash
    pip install notebook
+   pip install numpy
    ```
 
 2. **Launch Jupyter Notebook**:
