@@ -15,7 +15,7 @@ cd TinyNet
 
 The primary code and examples are contained within the `main.ipynb` Jupyter Notebook. To explore and run the code:
 
-1. **Install Numpy and Jupyter Notebook**: If you don't have them installed, you can add them using pip:
+1. **Install Numpy and Jupyter Notebook**:
 
    ```bash
    pip install notebook
